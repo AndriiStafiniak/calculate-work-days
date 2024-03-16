@@ -1,12 +1,8 @@
 {
-  const firstDate = document.querySelector(".js-firstDate");
   const secondtDate = document.querySelector(".js-secondDate");
-
-  //   const oneDay = 1000 * 60 * 60 * 24;
-  //   console.log(oneDay);
+  const firstDate = document.querySelector(".js-firstDate");
 
   const calculateDaysAtWork = (fromDate, toDate) => {
-    console.log("wywolana");
     let daysAtWork = 0;
     let firstDate = new Date(fromDate);
     while (firstDate <= new Date(toDate)) {
@@ -23,12 +19,12 @@
   const init = () => {
     const form = document.querySelector(".js-form");
     form.addEventListener("submit", (event) => {
-      event.preventDefault();
       let fromDate = firstDate.value;
       let toDate = secondtDate.value;
+      event.preventDefault();
       const result = calculateDaysAtWork(fromDate, toDate);
-
-      console.log(result);
+      const resultText = document.querySelector(".js-result");
+      resultText.innerHTML = `<p> Ilośc roboczych dni:<strong> ${result}<strong></p>`;
     });
   };
   init();
